@@ -47,7 +47,22 @@ $(document).ready(function(e) {
 
 					});
 				}
-    		});// end of class checkdisableb7
+    		});// end of class checkdisableb8
+
+
+    		 $('.checkdisableb13').click(function() {  //on click
+				if (this.checked) { // check select status
+					$('.cbox13').each(function() { //loop through each checkbox
+					    this.checked = false; 
+					    $(".cbox13").attr("disabled", true);             
+					});
+				} else {
+					$('.cbox13').each(function() { //loop through each checkbox
+						$(".cbox13").removeAttr("disabled");
+
+					});
+				}
+    		});// end of class checkdisableb8	
 });
 
 
