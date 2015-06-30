@@ -1,3 +1,5 @@
+var message 		=  'Thank You ';
+var exdays			= '10';
 
 var Form =(function(){
 	
@@ -105,79 +107,95 @@ $(document).ready(function(e) {
 			});
 
 
+		 $('form').change(function(){
+			
+			
+			/*	q1 =	$('.q1 input[type="radio"]:checked:first').val();
+				q2 =	$('.q2 input[type="radio"]:checked:first').val();*/
+			/*	q9 =	$('.q9 input[').val();
+			alert(q9);	*/
+
+			/*	$('.q9 input[type="checkbox"]:checked').each(function() {
+					$(this).val();
+				});
+			*/
+
+				/*q1 = $('.q1 input[type="radio"]:checked:first').val();*/
+				/*$('section').each(q1, function (key, val){
+
+					alert(key);
+
+				});	*/
+			  /* $.each(data, function(key, val) {
+
+				});	*/
 
 
-		/*var days = 10;
-		var message = 'Please wait '+days+' days  before you can submit again.';
+		  })		
+
 	
-		$('#submit-btn').submit(function(e){
-			e.preventDefault();
-			var data = new Array();
-			
-			$('section').each(function(){
-				var classname = $(this).attr('class');
-				var value = new Array();
-				if( $(this).find('input[type="radio"]').length > 0 ){
-					value.push($(this).find('input[type="radio"]:checked:first').val());
-				}
-				else if( $(this).find('input[type="checkbox"]').length > 0 ){
-					value.push( $(this).find('input[type="checkbox"]:checked').val() );
-				}
-				else if( $(this).find('textarea').length > 0 )
-					value.push( $(this).find('textarea').val() );
-				else if( $(this).find('select').length > 0 )
-					value.push( $(this).find('select option:selected').val() );
-				
-				data.push(  { 	
-								'class' : classname,
-								'value' : value
-							} );
-			});
+
+
+
+ /*	$('body').on('click', '.submit-btn', function() {
 			
 
-			console.log( data );
-			//set_cookie( 'space_cookie', JSON.stringify( data ), days, '/' );
-			$.cookie('space_cookie', JSON.stringify( data ), {expires : days, path: '/'});
+  				q1 =	$('.q1 input[type="radio"]:checked:first').val();
+				q2 =	$('.q2 input[type="radio"]:checked:first').val();
+			alert(q1 + q2);
 
-			$('#formsubmit').submit();
-				
-		});
-		
-		if( $.cookie('space_cookie') ){
-			var sections = JSON.parse( $.cookie('space_cookie') );
-			console.log(sections);
-			for( var i=0; i<sections.length; i++ ){
-				var element = $('.'+sections[i].class);
-				if( element.find('input[type="radio"]').length > 0 ){
-					$(this).find('input[value="'+sections[i].value[0]+'"]').attr('checked', 'checked');
-				}
-				else if( element.find('input[type="checkbox"]').length > 0 ){
-					element.find('input[type="checkbox"]').each(function(){
-					
-						for( var j=0; j<sections[i].value.length; j++ )
-							if( $(this).val() == sections[i].value[j] )
-								$(this).attr('checked', 'checked');
-					});
-					
-						
-				}
-				else if( element.find('textarea').length > 0 )
-					element.find('textarea').val( sections[i].value[0] );
-				else if( $(this).find('select').length > 0 )
-					element.find('select option[value="'+sections[i].value[0]+'"]').attr('selected', 'selected');
-			}
-			$('input, textarea, select').attr('disabled','disabled')
-			alert(message);
-		}
-		else
-			alert('no cookie');*/
+    });*/
 
+$('body').on('submit', '.submit-btn', function() {
+
+	/*var cname 				= 'disabled';
+	var cookie_value		= 'disabled'; 
+	var valid_domain		= 'http://ulmcontact.localhost/';		*/
+
+	$('section input').attr(cname, cookie_value);
+	
+	//set_cookie(cookie_name, cookie_value, lifespan_in_days, valid_domain );
+
+
+
+ });
 
 
 });// end of document
 
 
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
 
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var cookie_name=getCookie("disabled");
+    if (cookie_name != "") {
+        alert(message);
+    } else {
+       cookie_name = prompt("Please enter your name:","");
+       if (cookie_name != "" && cookie_name != null) {
+           setCookie("disabled", cookie_name, 30);
+       }
+    }
+}
 
 
 
