@@ -44,6 +44,33 @@ html,body{
 	font-weight: 600;
 }
 
+/*.imgline{
+	width: 736px;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 16px;
+}*/
+
+.sectionline{
+	width: 736px;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 16px;
+}
+.btn-download, .img{
+	  display: inline-block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 32.8%;
+}
+.btn-download{
+	text-align: center;
+
+}
+
+
 
 
 

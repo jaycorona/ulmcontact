@@ -26,14 +26,17 @@
 <meta name="viewport" content="width=1024">
 
 <link type="text/css" rel="stylesheet" href="https://www.nhk.or.jp/seimei/common/css/import.css">
-<link type="text/css" rel="stylesheet" href="https://www.nhk.or.jp/seimei/contact/css/style.css">
+<link type="text/css" rel="stylesheet" href="css/style.css">
 
 <script type="text/javascript" src="https://www.nhk.or.jp/common/sp/nol_SmartPhone.js" charset="utf-8"></script>
 <script type="text/javascript" src="https://www.nhk.or.jp/common/jquery/jquery.js"></script>
-<script>if(location.protocol=="http:")location.href="https://"+location.hostname+locat
-ion.pathname;</script>
+<!--  //<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
+<script>
+	//if(location.protocol=="http:")location.href="https://"+location.hostname+location.pathname;
+</script>
 
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
 
 </head>
 
@@ -63,49 +66,211 @@ ion.pathname;</script>
         ※お問い合わせいただいたご意見・ご感想は「生命大躍進」の番組・アプリ・展覧会以外の目的に使用したり、外部に出すことはありません。<br>
           ※お名前やメ－ルアドレス、電話番号に入力は必須ではありません。<br>※お問い合わせに回答をさし上げる場合にはお名前、メールアドレス、電話番号等が必要になりますので、<br>正確にご記入ください。</div>
 		
-		<form method="post" action="https://cgi2.nhk.or.jp/cgibin/mailform-08a.cgi">
+		<form method="post" id="formsubmit" action="https://cgi2.nhk.or.jp/cgibin/mailform-08a.cgi">
         	<input type="hidden" name="setup" value="/seimei/contact/contact">
 			<input type="hidden" name="moji" value="問">
             <input type="hidden" name="__subject__" value="MAIL TITLE">
             <input type="hidden" name="__ipaddr__" value="">
-			<!-- <p>こちらにご感想やご意見をお書き下さい<span class="font10">※400文字以内でお願いします。</span> </p>
-			<textarea name="text" rows="4" cols="60"></textarea> -->
+
 			
-			<!-- <p>お名前</p>
-			<input value="" name="name" id="name" type="text"> -->
+		
+            <div class="txt1">
 
-			<!-- <select name="sex" class="textbox"> 
-				<option selected="selected">性別</option>
-				<option value="男性">男性</option>
-				<option value="女性">女性</option>
-			</select> -->
+			<section class="q1">
+			<p>Q1.	これまでに「コダモン」アプリを使ったことがありますか。</p>
 
-			<p>性別：
+				<input type="radio" name="q1"  class="ans1" value="はい" />はい<br>
+				<input type="radio" name="q1"  class="ans1" value="いいえ" />いいえ<br>	
+			</section>
+
+
+			<section class="q2">
+			<p>Q2.	このアンケートを知ったきっかけは何ですか？</p>
+				<input type="radio" name="q2"  class="ans2" value="「コダモン」アプリのパソコン・スマホ向けサイト" />「コダモン」アプリのパソコン・スマホ向けサイト <br>
+				<input type="radio" name="q2"  class="ans2" value="「コダモン」アプリのプッシュ通信機能" />「コダモン」アプリのプッシュ通信機能<br>
+				<input type="radio" name="q2"  class="ans2" value="「コダモン」アプリに関するTwitter、Facebook、LINEなど" />「コダモン」アプリに関するTwitter、Facebook、LINEなど<br>
+				<input type="radio" name="q2"  class="ans2" value="その他" />その他<br>
+			</section>
+
+
+			<section class="q3">
+			<p>Q3.	「コダモン」アプリを知ったきっかけは何ですか？</p>
+				<input type="radio" name="q3"  value="NHKの番組" />NHKの番組 <br>
+				<input type="radio" name="q3"  value="NHKのホームページ" />NHKのホームページ <br>
+				<input type="radio" name="q3"  value="App StoreやGoogle Play" />App StoreやGoogle Play <br>
+				<input type="radio" name="q3"  value="NHKのTwitter、Facebook、LINEなど" />NHKのTwitter、Facebook、LINEなど <br>
+				<input type="radio" name="q3"  value="LINEの「フリーコインビデオ" />LINEの「フリーコインビデオ <br>
+				<input type="radio" name="q3"  value="2～5以外のホームページやインターネットサービス" />2～5以外のホームページやインターネットサービス <br>
+				<input type="radio" name="q3"  value="新聞や雑誌、ポスター" />新聞や雑誌、ポスター <br>
+				<input type="radio" name="q3"  value="特別展「生命大躍進（せいめいだいやくしん）」会場" />特別展「生命大躍進（せいめいだいやくしん）」会場 <br>
+				<input type="radio" name="q3"  value="その他" />その他<br>
+			</section>
+
+			<section class="q4">
+			<p>Q4.	「コダモン」アプリをいつから使っていますか？</p>
+				<input type="radio" name="q4"  value="スタート直後（4/24金～）" />スタート直後（4/24金～）<br>
+				<input type="radio" name="q4"  value="5月ごろ" />5月ごろ<br>
+				<input type="radio" name="q4"  value="6月ごろ" />6月ごろ<br>
+				<input type="radio" name="q4"  value="7月ごろ" />7月ごろ
+			</section>
+
+			<section class="q5">
+			<p>Q5.	いま、「コダモン」アプリをどの程度使っていますか？</p>
+				<input type="radio" name="q5"  value="1日に何回も"/>1日に何回も<br>
+				<input type="radio" name="q5"  value="1日に1回程度" />1日に1回程度<br>
+				<input type="radio" name="q5"  value="1週間に2、3回程度" />1週間に2、3回程度<br>
+				<input type="radio" name="q5"  value="気が向いたときだけ" />気が向いたときだけ<br>
+				<input type="radio" name="q5"  value="1回だけ" />1回だけ<br>
+			</section>
+
+
+			<section class="q6">
+			<p>Q6.	「コダモン」アプリについて、どう思いますか？</p>
+				<input type="radio" name="q6"  value="とてもいいと思う"/>とてもいいと思う <br>
+				<input type="radio" name="q6"  value="まあいいと思う" />まあいいと思う<br>
+				<input type="radio" name="q6"  value="あまりよくないと思う" />あまりよくないと思う<br>
+				<input type="radio" name="q6"  value="まったくよくないと思う" />まったくよくないと思う<br>
+			</section>
+
+			<section class="q7">
+			<p>Q7.	「コダモン」アプリについて、どのように感じていますか。いくつでもお選びください。</p>	
+				<input class="cbox7" type="checkbox" name="q7" value="古代生物のキャラクターがかわいい">古代生物のキャラクターがかわいい<br>	
+				<input class="cbox7" type="checkbox" name="q7" value="タップして、古代生物を増やしていくのが楽しい">タップして、古代生物を増やしていくのが楽しい<br>	
+				<input class="cbox7" type="checkbox" name="q7" value="遺伝子をゲットして、生物を進化させるゲームのしくみが面白い">遺伝子をゲットして、生物を進化させるゲームのしくみが面白い<br>	
+				<input class="cbox7" type="checkbox" name="q7" value="生物の進化を遊びながら学べる">生物の進化を遊びながら学べる<br>	
+				<input class="cbox7" type="checkbox" name="q7" value="古代生物についての興味や関心が高まる">古代生物についての興味や関心が高まる<br>	
+				<input class="checkdisableb7" type="checkbox" name="q7" value="どれもない">どれもない<br>	
+			</section>
+
+
+			<section class="q8">
+			<p>Q8.	「コダモン」アプリ内の「ずかん」では、古代生物のくわしい解説などが見られます。あなたは、「ずかん」をどの程度見ていますか？</p>
+				<input type="radio" name="q8"  value="「コダモン」アプリを利用するときはいつも見る"/>「コダモン」アプリを利用するときはいつも見る <br>
+				<input type="radio" name="q8"  value="たまに見ることがある" />たまに見ることがある<br>
+				<input type="radio" name="q8"  value="ほとんど・まったく見たことがない" />ほとんど・まったく見たことがない<br>
+				<input type="radio" name="q8"  value="「ずかん」があることに気づかなかった" />「ずかん」があることに気づかなかった<br>
+			</section>	
+		
+
+			<section class="q9">
+			<p>Q9.	「コダモン」アプリの「ずかん」を見るときに、次のようなことは感じますか。いくつでもお選びください。</p>
+				<input class="cbox9" type="checkbox" name="q9"  value="新しい生物を出現させると達成感がある"/>新しい生物を出現させると達成感がある <br>
+				<input class="cbox9" type="checkbox" name="q9"  value="何とかして「ずかん」を完成させたいと思う" />何とかして「ずかん」を完成させたいと思う<br>
+				<input class="cbox9" type="checkbox" name="q9"  value="生物の進化の様子を図で理解できる" />生物の進化の様子を図で理解できる<br>
+				<input class="cbox9" type="checkbox" name="q9"  value="生物の進化についての考え方を知ることができる" />生物の進化についての考え方を知ることができる<br>
+				<input class="cbox9" type="checkbox" name="q9"  value="「ずかん」は見ていない・知らなかった" />「ずかん」は見ていない・知らなかった<br>
+				<input class="checkdisableb9" type="checkbox" name="q9" value="どれもあてはまらない">どれもあてはまらない<br>	
+			</section>	
+
+
+			<section class="q10">
+			<p>Q10. 「コダモン」アプリについての感想や、アプリを利用していて気がついた点などを、ご自由にお書きください。（自由回答）</p>	
+			<textarea name="q10" class="textq10" id="textareaChars" maxlength="400" style="margin: 0px; width: 681px; height: 93px;"></textarea>あと<span id="display_count">400</span>字 
+			</section>	
+
+			<section class="q11">
+			<p>Q11.	「コダモン」アプリでは、番組や展覧会の情報、アプリのアップデートなどを「プッシュ通知でお知らせしています。あなたはいま、「コダモン」から「プッシュ通知」を受け取っていますか？</p>
+				<input type="radio" name="q11"  value="「プッシュ通知」を受け取っている"/>「プッシュ通知」を受け取っている<br>
+				<input type="radio" name="q11"  value="「プッシュ通知」を受け取っていない" />「プッシュ通知」を受け取っていない<br>
+				<input type="radio" name="q11"  value="わからない" />わからない<br>
+			</section>	
+
+			<section class="q12">
+			<p>Q12.	コダモン」アプリの「プッシュ通知」がきっかけとなって、次のようなことをしたことはありますか。いくつでもお選びください。</p>
+				<input class="cbox12" type="checkbox" name="q12"  value="アプリを起動させて、ゲームで遊んだ"/>アプリを起動させて、ゲームで遊んだ<br>
+				<input class="cbox12" type="checkbox" name="q12"  value="関連の番組を放送していることを知った"/>関連の番組を放送していることを知った<br>
+				<input class="cbox12" type="checkbox" name="q12"  value="関連の展覧会があることを知った"/>関連の展覧会があることを知った<br>
+				<input class="cbox12" type="checkbox" name="q12"  value="「プッシュ通知」を受け取っていない／わからない"/>「プッシュ通知」を受け取っていない／わからない<br>
+				<input class="checkdisableb12" type="checkbox" name="q12"  value="どれもない"/>どれもない<br>
+			
+			
+			</section>	
+         	
+          	<section class="q13">
+			<p>Q13.	NHKでは、生物の進化に関するさまざまな番組を放送しています。あなたがこれまでに見た番組を、いくつでもお選びください。</p>
+				<input class="cbox13" type="checkbox" name="q13"  value="「NHKスペシャル生命大躍進（せいめいだいやくしん）第1集～第3集（5/10、6/7、7/5）" />「NHKスペシャル生命大躍進（せいめいだいやくしん）第1集～第3集（5/10、6/7、7/5）<br>
+				<input class="cbox13" type="checkbox" name="q13"  value="Eテレ（教育テレビ）のアニメ「ピカイア」（7/19～24、7/27～30）" />Eテレ（教育テレビ）のアニメ「ピカイア」（7/19～24、7/27～30）<br>
+				<input class="checkdisableb13" type="checkbox" name="q13"  value="どれも見たことがない" />どれも見たことがない<br>
+			</section>	
+
+			<section class="q14">
+			<p>Q14.	「NHKスペシャル 生命大躍進（せいめいだいやくしん）」や「ピカイア」の放送中や放送前後には、「コダモン」アプリ内で番組の内容に関するクイズに挑戦できます。あなたは、こうしたクイズに挑戦したことはありますか？</p>
+				<input type="radio" name="q14"  value="クイズに挑戦したことがある"/>クイズに挑戦したことがある<br>
+				<input type="radio" name="q14"  value="クイズがあることは知っていたが、挑戦はしていない" />クイズがあることは知っていたが、挑戦はしていない<br>
+				<input type="radio" name="q14"  value="クイズがあることを知らなかった" />クイズがあることを知らなかった<br>
+				<input type="radio" name="q14"  value="番組を見ていない" />番組を見ていない<br>
+			</section>	
+
+			<section class="q15">
+			<p>Q15.	「コダモン」アプリを使ったことがきっかけとなって、次のようなことを感じたり、したことはありますか？いくつでもお選びください。</p>
+				<input class="cbox15" type="checkbox" name="q15"  value="古代生物への興味や関心が高まった"/>古代生物への興味や関心が高まった<br>
+				<input class="cbox15" type="checkbox" name="q15"  value=" 関連番組（「NHKスペシャル生命大躍進（せいめいだいやくしん）」「ピカイア」）を見たくなった／見た" /> 関連番組（「NHKスペシャル生命大躍進（せいめいだいやくしん）」「ピカイア」）を見たくなった／見た<br>
+				<input class="cbox15" type="checkbox" name="q15"  value="他のNHKの番組も見たくなった" />他のNHKの番組も見たくなった<br>
+				<input class="cbox15" type="checkbox" name="q15"  value="特別展「生命大躍進」に行ってみたくなった／行った" />特別展「生命大躍進」に行ってみたくなった／行った<br>
+				<input class="cbox15" type="checkbox" name="q15"  value="NHKに対する親しみが増した" />NHKに対する親しみが増した<br>
+				<input class="checkdisableb15" type="checkbox" name="q15"  value="あてはまるものはない" />あてはまるものはない<br>
+			</section>	
+
+			<section class="q16">
+			<p>Q16.	今月（7/7）から、東京の国立科学博物館で、特別展「生命大躍進（せいめいだいやくしん）が開かれます。あなたはこのこと知っていましたか。</p>
+				<input type="radio" name="q16"  value="展覧会が開かれることを知っていて、ぜひ行ってみたい／すでに行った"/>展覧会が開かれることを知っていて、ぜひ行ってみたい／すでに行った<br>
+				<input type="radio" name="q16"  value="展覧会が開かれることは知っていたが、行ってみようとは思わない" />展覧会が開かれることは知っていたが、行ってみようとは思わない<br>
+				<input type="radio" name="q16"  value="展覧会が開かれることを知らなかったが、ぜひ行ってみたい" />展覧会が開かれることを知らなかったが、ぜひ行ってみたい<br>
+				<input type="radio" name="q16"  value="展覧会が開かれることを知らなかったが、行ってみようとは思わない" />展覧会が開かれることを知らなかったが、行ってみようとは思わない<br>
+			</section>	
+
+
+			<section class="q17">
+			<p>Q17.	あなたはふだん、スマートフォンのゲームアプリをどの程度利用していますか。</p>
+				<input type="radio" name="q17"  value="1日に何回も" />1日に何回も<br>
+				<input type="radio" name="q17"  value="日に1回程度" />日に1回程度<br>
+				<input type="radio" name="q17"  value="1週間に2、3回程度" />1週間に2、3回程度<br>
+				<input type="radio" name="q17"  value="気が向いたときだけ" />気が向いたときだけ<br>
+				<input type="radio" name="q17"  value="1回だけ" />1回だけ<br>
+			</section>	
+
+
+			<section class="q18">
+			<p>Q18.	あなたはふだん、NHKの番組と民放の番組のどちらを多く見ていますか。</p>
+				<input type="radio" name="q18"  value="NHKだけを見て、民放はまったく見ない" />NHKだけを見て、民放はまったく見ない<br>
+				<input type="radio" name="q18"  value="民放より、NHKのほうを多く見る" />民放より、NHKのほうを多く見る<br>
+				<input type="radio" name="q18"  value="NHKと民放を同じくらい見る" />NHKと民放を同じくらい見る<br>
+				<input type="radio" name="q18"  value="NHKより、民放のほうを多く見る" />NHKより、民放のほうを多く見る<br>
+				<input type="radio" name="q18"  value="民放だけを見て、NHKはまったく見ない" />民放だけを見て、NHKはまったく見ない<br>
+				<input type="radio" name="q18"  value="テレビはほとんど・まったく見ない" />テレビはほとんど・まったく見ない<br>
+			</section>	 
+
+
+	          	
+			<section class="buttonhere"> 
+			<p>性別を教えてください：
 				<input type="radio" name="sex"  value="男性" />男性　 
 				<input type="radio" name="sex"  value="女性" style="margin-left: -9px"/>女性
 			</p>
-
-			<p>年代：
-				<input type="radio" name="era"  value="10代" />10代 
-				<input type="radio" name="era"  value="20代" />20代
-				<input type="radio" name="era"  value="30代" />30代
-				<input type="radio" name="era"  value="40代" />40代
-				<input type="radio" name="era"  value="50代" />50代
-				<input type="radio" name="era"  value="60代" />60代
-				<input type="radio" name="era"  value="70歳以上" />70歳以上
+			</section>
+			<section class="buttonhere2"> 
+			<p>年齢を教えてください：
+				<input type="radio" name="era"  value="0～9歳" />0～9歳 
+				<input type="radio" name="era"  value="10歳～19歳" />10歳～19歳
+				<input type="radio" name="era"  value="20歳～29歳" />20歳～29歳
+				<input type="radio" name="era"  value="30歳～39歳" />30歳～39歳
+				<input type="radio" name="era"  value="40歳～49歳" />40歳～49歳
+				<input type="radio" name="era"  value="50歳～59歳" />50歳～59歳
+				<input type="radio" name="era"  value="60歳以上" />60歳以上
 			</p>	
-
+			</section>
+			<section class="buttonhere3"> 
 			<p>職業：
-				<input type="radio" name="occupation" value="生徒・学生">生徒・学生
+				<input type="radio" name="occupation" value="小学生～大学生">小学生～大学生
 				<input type="radio" name="occupation" value="勤め人">勤め人
 				<input type="radio" name="occupation" value="農林漁業・自営業">農林漁業・自営業
 				<input type="radio" name="occupation" value="専門職・自由業">専門職・自由業
 				<input type="radio" name="occupation" value="主婦">主婦
-				<input type="radio" name="occupation" value="主婦">無職
-				<input type="radio" name="occupation" value="主婦">その他
+				<input type="radio" name="occupation" value="無職">無職
+				<input type="radio" name="occupation" value="その他">その他
 			</p>
-
-
+			</section>
+			<section class="buttonhere4"> 
 			<p>居住地：
 			<select name="area01" class="textbox" id="area01">
 				<option selected="selected">都道府県</option>
@@ -158,180 +323,7 @@ ion.pathname;</script>
 				<option value="沖縄県">沖縄県</option>
 			</select>
 			</p>
-		<!-- 	<p>選択してください</p>
-			<select name="age" class="textbox"> 
-				<option selected="selected">学年・職業</option>
-				<option value="小学生">小学生</option>
-				<option value="中学1年生">中学生</option>
-				<option value="高校3年生">高校生</option>
-				<option value="大学生">大学生</option>
-				<option value="社会人">社会人</option>
-				<option value="主婦">主婦</option>
-				<option value="その他">その他</option>
-			</select> -->
-			
-			
-			
-			<!-- <p>連絡先<br>
-			メールアドレス</p>
-			<input value="" name="mail" id="mail" type="text">
-			<p>電話番号</p>
-			<input value="" name="phone" id="phone" type="text"><br/><br/>
-             -->
-            <div class="txt1">
-
-			<section class="q1">
-			<p>Q1.「コダモン」アプリに関するアンケートにご協力いただき、ありがとうございます。
-			あなたは、これまでに「コダモン」アプリを使ったことがありますか。</p>
-
-				<input type="radio" name="q1"  value="はい" />はい <br>
-				<input type="radio" name="q1"  value="いいえ" />いいえ
 			</section>
-
-
-			<section class="q2">
-			<p>Q2.	このアンケートを知ったきっかけは何ですか？</p>
-				<input type="radio" name="q2"  value="「コダモン」アプリのPC・スマートフォン向けサイト" />「コダモン」アプリのPC・スマートフォン向けサイト <br>
-				<input type="radio" name="q2"  value="「コダモン」アプリのプッシュ通信機能" />「コダモン」アプリのプッシュ通信機能<br>
-				<input type="radio" name="q2"  value="コダモン」アプリに関するTwitter、Facebook、LINEなどのSNS" />「コダモン」アプリに関するTwitter、Facebook、LINEなどのSNS<br>
-				<input type="radio" name="q2"  value="その他" />その他<br>
-			</section>
-
-
-			<section class="q3">
-			<p>Q3. あなたが、「コダモン」アプリを知ったきっかけは何ですか？</p>
-				<input type="radio" name="q3"  value="NHKの番組" />NHKの番組 <br>
-				<input type="radio" name="q3"  value="NHKのホームページ" />NHKのホームページ <br>
-				<input type="radio" name="q3"  value="App StoreやGoogle Play" />App StoreやGoogle Play <br>
-				<input type="radio" name="q3"  value="NHKが発信しているTwitter、Facebook、LINEなどのSNS" />NHKが発信しているTwitter、Facebook、LINEなどのSNS <br>
-				<input type="radio" name="q3"  value="LINEのフリーコインビデオ" />LINEのフリーコインビデオ <br>
-				<input type="radio" name="q3"  value="2～4以外のホームページやインターネットサービス" />2～4以外のホームページやインターネットサービス <br>
-				<input type="radio" name="q3"  value="新聞や雑誌、ポスター" />新聞や雑誌、ポスター <br>
-				<input type="radio" name="q3"  value="特別展「生命大躍進」会場" />特別展「生命大躍進」会場 <br>
-				<input type="radio" name="q3"  value="その他" />その他<br>
-			</section>
-
-
-
-			<section class="q4">
-			<p>Q4.	あなたは、「コダモン」アプリをいつから使っていますか？</p>
-				<input type="radio" name="q4"  value="4月24日（金）の配信スタート直後" />4月24日（金）の配信スタート直後 <br>
-				<input type="radio" name="q4"  value="5月" />5月<br>
-				<input type="radio" name="q4"  value="6月" />6月<br>
-				<input type="radio" name="q4"  value="7月" />7月
-				
-			</section>
-
-			<section class="q5">
-			<p>Q5.	あなたはいま、「コダモン」アプリをどの程度使っていますか？</p>
-				<input type="radio" name="q5"  value="1日に何度も"/>1日に何度も <br>
-				<input type="radio" name="q5"  value="ほぼ毎日" />ほぼ毎日<br>
-				<input type="radio" name="q5"  value="1週間に数回程度" />1週間に数回程度<br>
-				<input type="radio" name="q5"  value="気が向いたときだけ" />気が向いたときだけ<br>
-				<input type="radio" name="q5"  value="1回だけ" />1回だけ<br>
-			</section>
-
-			<section class="q6">
-			<p>Q6.「コダモン」アプリに全体としてどの程度満足していますか？</p>
-				<input type="radio" name="q6"  value="とても満足している"/>とても満足している <br>
-				<input type="radio" name="q6"  value="まあ満足している" />まあ満足している<br>
-				<input type="radio" name="q6"  value="あまり満足していない" />あまり満足していない<br>
-				<input type="radio" name="q6"  value="まったく満足していない" />まったく満足していない<br>
-			</section>
-
-			<section class="q7">
-			<p>Q7.「コダモン」アプリについて、あなたはどのように感じていますか。
-				あてはまるものがあれば、いくつでもお選びください。（複数選択可）</p>	
-				<input class="cbox7" type="checkbox" name="q7" value="古代生物のキャラクターがかわいい">古代生物のキャラクターがかわいい<br>	
-				<input class="cbox7" type="checkbox" name="q7" value="タップ操作で古代生物を増やしていくのが楽しい">タップ操作で古代生物を増やしていくのが楽しい<br>	
-				<input class="cbox7" type="checkbox" name="q7" value="遺伝子をゲットして、生物を進化させるゲームの仕組みが面白い">遺伝子をゲットして、生物を進化させるゲームの仕組みが面白い<br>	
-				<input class="cbox7" type="checkbox" name="q7" value="生物の進化を遊びながら学べるのがよい">生物の進化を遊びながら学べるのがよい<br>	
-				<input class="checkdisableb7" type="checkbox" name="q7" value="あてはまるものはない">あてはまるものはない<br>	
-			</section>
-
-
-			<section class="q8">
-			<p>Q8.	では、「コダモン」アプリを操作しているときに、次のようなことは感じましたか。あてはまるものがあれば、いくつでもお選びください。（複数選択可）</p>
-				<input class="cbox8" type="checkbox" name="q8"  value="ルールが複雑でわかりにくい"/>ルールが複雑でわかりにくい <br>
-				<input class="cbox8" type="checkbox" name="q8"  value="古代生物やゲームについての説明文が難しい" />古代生物やゲームについての説明文が難しい<br>
-				<input class="cbox8" type="checkbox" name="q8"  value="ゲームとしては簡単すぎる" />ゲームとしては簡単すぎる<br>
-				<input class="cbox8" type="checkbox" name="q8"  value="操作中の不具合が多い" />操作中の不具合が多い<br>
-				<input class="cbox8" type="checkbox" name="q8"  value="ゲームの続きがなかなかリリースされないのが残念" />ゲームの続きがなかなかリリースされないのが残念<br>
-				<input class="checkdisableb8" type="checkbox" name="q8"  value="あてはまるものはない" />あてはまるものはない<br>
-			</section>	
-		
-
-			<section class="q9">
-			<p>Q9.「コダモン」アプリ内の「ずかん」では、古代生物の系統樹や詳しい解説などを見ることができます。あなたは、「ずかん」をどの程度見ていますか？</p>
-				<input type="radio" name="q9"  value="「コダモン」アプリを利用するときはいつも見る"/>「コダモン」アプリを利用するときはいつも見る <br>
-				<input type="radio" name="q9"  value="たまに見ることがある" />たまに見ることがある<br>
-				<input type="radio" name="q9"  value="ほとんど・まったく見たことがない" />ほとんど・まったく見たことがない<br>
-				<input type="radio" name="q9"  value="「ずかん」があることに気づかなかった" />「ずかん」があることに気づかなかった<br>
-			</section>	
-
-			<section class="q10">
-			<p>Q10.「コダモン」アプリ内の「おしらせ」では、関連番組の放送予定や、オススメ動画などを紹介しています。あなたは、「おしらせ」をどの程度見ていますか？</p>
-				<input type="radio" name="q10"  value="「コダモン」アプリを利用するときはいつも見る"/>「コダモン」アプリを利用するときはいつも見る <br>
-				<input type="radio" name="q10"  value="たまに見ることがある" />たまに見ることがある<br>
-				<input type="radio" name="q10"  value="ほとんど・まったく見たことがない" />ほとんど・まったく見たことがない<br>
-				<input type="radio" name="q10"  value="「おしらせ」があることに気づかなかった" />「おしらせ」があることに気づかなかった<br>
-			</section>	
-
-			<section class="q11">
-			<p>Q11.	NHKでは、「コダモン」アプリと連動して、生物の進化に関するさまざまな番組を 放送しています。あなたがこれまでにご覧になった番組がありましたら、いくつでも選んでください。</p>
-				<input type="radio" name="q11"  value="「NHKスペシャル 生命大躍進」第1集～第3集（5/10、6/7、7/5）"/>「NHKスペシャル 生命大躍進」第１集～第3集（5/10、6/7、7/5）<br>
-				<input type="radio" name="q11"  value="Eテレ（教育テレビ）のアニメ「ピカイア」（4/29、5/4、5/5、5/6）" />Eテレ（教育テレビ）のアニメ「ピカイア」（4/29、5/4、5/5、5/6）<br>
-				<input type="radio" name="q11"  value="どれも見たことがない" />どれも見たことがない<br>
-			</section>	
-
-			<section class="q12">
-			<p>Q12.「NHKスペシャル 生命大躍進」や「ピカイア」の放送中や放送前後には、「コダモン」アプリ内で番組に連動したクイズに挑戦できます。 あなたは、番組連動クイズに挑戦したことはありますか？</p>
-				<input type="radio" name="q12"  value="番組連動クイズに挑戦したことがある"/>番組連動クイズに挑戦したことがある<br>
-				<input type="radio" name="q12"  value="番組連動クイズがあることは知っていたが、挑戦はしていない" />番組連動クイズがあることは知っていたが、挑戦はしていない<br>
-				<input type="radio" name="q12"  value="番組連動クイズがあることを知らなかった" />番組連動クイズがあることを知らなかった<br>
-				<input type="radio" name="q12"  value="番組を見ていない" />番組を見ていない<br>
-			</section>	
-         	
-          	<section class="q13">
-			<p>Q13.「コダモン」アプリを使ったことをきっかけに、次のようなことを感じたり、したりしたことがあれば、いくつでもお選びください。（複数選択可）</p>
-				<input class="cbox13" type="checkbox" name="q13"  value="古代生物への興味・関心が高まった" />古代生物への興味・関心が高まった<br>
-				<input class="cbox13" type="checkbox" name="q13"  value="関連番組（「NHKスペシャル生命大躍進」「ピカイア」）を見たくなった／見た" />関連番組（「NHKスペシャル生命大躍進」「ピカイア」）を見たくなった／見た<br>
-				<input class="cbox13" type="checkbox" name="q13"  value="他のNHKの番組も見たくなった" />他のNHKの番組も見たくなった<br>
-				<input class="cbox13" type="checkbox" name="q13"  value="特別展「生命大躍進」に行ってみたくなった／行った" />特別展「生命大躍進」に行ってみたくなった／行った<br>
-				<input class="cbox13" type="checkbox" name="q13"  value="NHKに対する親しみが増した" />NHKに対する親しみが増した<br>
-				<input class="checkdisableb13" type="checkbox" name="q13"  value="あてはまるものはない" />あてはまるものはない<br>
-			</section>	
-
-			<section class="q14">
-			<p>Q14.	今月（7/7）から、東京の国立科学博物館で、特別展「生命大躍進」が開かれます。あなたはこのことをご存知でしたか？</p>
-				<input type="radio" name="q14"  value="展覧会が開かれることを知っていて、ぜひ行ってみたい／すでに行った"/>展覧会が開かれることを知っていて、ぜひ行ってみたい／すでに行った<br>
-				<input type="radio" name="q14"  value="展覧会が開かれることは知っていたが、行ってみようとは思わない" />展覧会が開かれることは知っていたが、行ってみようとは思わない<br>
-				<input type="radio" name="q14"  value="展覧会が開かれることを知らなかったが、ぜひ行ってみたい" />展覧会が開かれることを知らなかったが、ぜひ行ってみたい<br>
-				<input type="radio" name="q14"  value="展覧会が開かれることを知らなかったが、行ってみようとは思わない" />展覧会が開かれることを知らなかったが、行ってみようとは思わない<br>
-			</section>	
-
-			<section class="q15">
-			<p>Q15.	あなたはふだん、スマートフォンのゲームアプリをどの程度利用していますか。</p>
-				<input type="radio" name="q15"  value="1日に何度も"/>1日に何度も<br>
-				<input type="radio" name="q15"  value="ほぼ毎日" />ほぼ毎日<br>
-				<input type="radio" name="q15"  value="1週間に数回程度" />1週間に数回程度<br>
-				<input type="radio" name="q15"  value="気が向いたときだけ" />気が向いたときだけ<br>
-				<input type="radio" name="q15"  value="ほとんど利用しない" />ほとんど利用しない<br>
-			</section>	
-
-			<section class="q16">
-			<p>Q16.　あなたはふだん、NHKの番組と民放の番組のどちらを多く見ていますか。</p>
-				<input type="radio" name="q16"  value="NHKだけを見て、民放はまったく見ない"/>NHKだけを見て、民放はまったく見ない<br>
-				<input type="radio" name="q16"  value="NHKのほうをずっと多く見る" />NHKのほうをずっと多く見る<br>
-				<input type="radio" name="q16"  value="どちらかといえば、NHKのほうを多く見る" />どちらかといえば、NHKのほうを多く見る<br>
-				<input type="radio" name="q16"  value="NHK・民放、同じくらい見る" />NHK・民放、同じくらい見る<br>
-				<input type="radio" name="q16"  value="どちらかといえば、民放のほうを多く見る" />どちらかといえば、民放のほうを多く見る<br>
-				<input type="radio" name="q16"  value="民放のほうをずっと多く見る" />民放のほうをずっと多く見る<br>
-				<input type="radio" name="q16"  value="民放だけを見て、NHKはまったく見ない" />民放だけを見て、NHKはまったく見ない<br>
-				<input type="radio" name="q16"  value="テレビはほとんど・まったく見ない" />テレビはほとんど・まったく見ない<br>
-			</section>	
-
-	          
 
      </div>
 
@@ -344,7 +336,7 @@ ion.pathname;</script>
 </p>
 
 			
-			<input id="submit-btn" name="submit" value="送信" type="submit" disabled >
+			<input id="submit-btn" name="submit" value="送信" type="submit" class="submit-btn" disabled>
 			<input name="reset" value="リセット" type="reset">
 		
 		</form>
@@ -362,3 +354,74 @@ ion.pathname;</script>
 
 </body>
 </html>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var days = 10;
+		var message = 'Please wait '+days+' days  before you can submit again.';
+	
+		$('#submit-btn').submit(function(e){
+			e.preventDefault();
+			var data = new Array();
+			
+			$('section').each(function(){
+				var classname = $(this).attr('class');
+				var value = new Array();
+				if( $(this).find('input[type="radio"]').length > 0 ){
+					value.push($(this).find('input[type="radio"]:checked:first').val());
+				}
+				else if( $(this).find('input[type="checkbox"]').length > 0 ){
+					value.push( $(this).find('input[type="checkbox"]:checked').val() );
+				}
+				else if( $(this).find('textarea').length > 0 )
+					value.push( $(this).find('textarea').val() );
+				else if( $(this).find('select').length > 0 )
+					value.push( $(this).find('select option:selected').val() );
+				
+				data.push(  { 	
+								'class' : classname,
+								'value' : value
+							} );
+			});
+			
+
+			console.log( data );
+			//set_cookie( 'space_cookie', JSON.stringify( data ), days, '/' );
+			$.cookie('space_cookie', JSON.stringify( data ), {expires : days, path: '/'});
+
+			$('#formsubmit').submit();
+				
+		});
+		
+		if( $.cookie('space_cookie') ){
+			var sections = JSON.parse( $.cookie('space_cookie') );
+			console.log(sections);
+			for( var i=0; i<sections.length; i++ ){
+				var element = $('.'+sections[i].class);
+				if( element.find('input[type="radio"]').length > 0 ){
+					$(this).find('input[value="'+sections[i].value[0]+'"]').attr('checked', 'checked');
+				}
+				else if( element.find('input[type="checkbox"]').length > 0 ){
+					element.find('input[type="checkbox"]').each(function(){
+						/*if( $.inArray( $(this).val(), sections[i].value) )
+							$(this).attr('checked', 'checked'); */
+						for( var j=0; j<sections[i].value.length; j++ )
+							if( $(this).val() == sections[i].value[j] )
+								$(this).attr('checked', 'checked');
+					});
+					
+						
+				}
+				else if( element.find('textarea').length > 0 )
+					element.find('textarea').val( sections[i].value[0] );
+				else if( $(this).find('select').length > 0 )
+					element.find('select option[value="'+sections[i].value[0]+'"]').attr('selected', 'selected');
+			}
+			$('input, textarea, select').attr('disabled','disabled')
+			alert(message);
+		}
+		else
+			alert('no cookie');
+		
+	});
+</script>
