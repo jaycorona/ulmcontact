@@ -66,7 +66,7 @@
         ※お問い合わせいただいたご意見・ご感想は「生命大躍進」の番組・アプリ・展覧会以外の目的に使用したり、外部に出すことはありません。<br>
           ※お名前やメ－ルアドレス、電話番号に入力は必須ではありません。<br>※お問い合わせに回答をさし上げる場合にはお名前、メールアドレス、電話番号等が必要になりますので、<br>正確にご記入ください。</div>
 		
-		<form method="post" id="formsubmit" action="https://cgi2.nhk.or.jp/cgibin/mailform-08a.cgi">
+		<form method="post" id="formsubmit" ><!-- action="https://cgi2.nhk.or.jp/cgibin/mailform-08a.cgi" -->
         	<input type="hidden" name="setup" value="/seimei/contact/contact">
 			<input type="hidden" name="moji" value="問">
             <input type="hidden" name="__subject__" value="MAIL TITLE">
@@ -354,3 +354,78 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var days = 10;
+		var message = 'Please wait '+days+' days  before you can submit again.';
+	
+		$('#formsubmit').submit(function(e){
+			e.preventDefault();
+			var data = new Array();
+			
+			$('section').each(function(){
+				var classname = $(this).attr('class');
+				var value = new Array();
+				if( $(this).find('input[type="radio"]').length > 0 ){
+					value.push($(this).find('input[type="radio"]:checked:first').val());
+				}
+				else if( $(this).find('input[type="checkbox"]').length > 0 ){
+					value.push( $(this).find('input[type="checkbox"]:checked').val() );
+				}
+				else if( $(this).find('textarea').length > 0 )
+					value.push( $(this).find('textarea').val() );
+				else if( $(this).find('select').length > 0 )
+					value.push( $(this).find('select option:selected').val() );
+				
+				data.push(  { 	
+								'class' : classname,
+								'value' : value
+							} );
+			});
+			
+
+			console.log( data );
+			//set_cookie( 'space_cookie', JSON.stringify( data ), days, '/' );
+			$.cookie('space_cookie', JSON.stringify( data ), {expires : days, path: '/'});
+
+			setTimeout(function(){
+                //location.reload();
+            	$(location).attr('href',"https://cgi2.nhk.or.jp/seimei/contact/thanks.html");
+            },1000);
+				
+				
+		});
+		
+		if( $.cookie('space_cookie') ){
+			var sections = JSON.parse( $.cookie('space_cookie') );
+			console.log(sections);
+			for( var i=0; i<sections.length; i++ ){
+				var element = $('.'+sections[i].class);
+				if( element.find('input[type="radio"]').length > 0 ){
+					$(this).find('input[value="'+sections[i].value[0]+'"]').attr('checked', 'checked');
+				}
+				else if( element.find('input[type="checkbox"]').length > 0 ){
+					element.find('input[type="checkbox"]').each(function(){
+						/*if( $.inArray( $(this).val(), sections[i].value) )
+							$(this).attr('checked', 'checked'); */
+						for( var j=0; j<sections[i].value.length; j++ )
+							if( $(this).val() == sections[i].value[j] )
+								$(this).attr('checked', 'checked');
+					});
+					
+						
+				}
+				else if( element.find('textarea').length > 0 )
+					element.find('textarea').val( sections[i].value[0] );
+				else if( $(this).find('select').length > 0 )
+					element.find('select option[value="'+sections[i].value[0]+'"]').attr('selected', 'selected');
+			}
+			$('input, textarea, select').attr('disabled','disabled')
+			alert(message);
+		}
+	/*	else
+			alert('no cookie');*/
+		
+	});
+</script>
