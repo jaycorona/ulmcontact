@@ -20,6 +20,17 @@ var Form =(function(){
 $(document).ready(function(e) {
     Form.init();
 
+if(jQuery.browser.mobile)
+{
+	$('#header, #contact-header, #form').css({'width':'100%', 'padding': '0'});
+	$('#form').css({'width':'90%', 'padding': '4%'});
+	/*$(' input[type=checkbox]').css('transform','scale(1.5)','-webkit-transform','scale(1.5)');*/
+   console.log('You are using a mobile device!');
+}
+else
+{
+   console.log('You are not using a mobile device!');
+}
 
 		$('#privacy').click(function(e){
 			e.preventDefault();
