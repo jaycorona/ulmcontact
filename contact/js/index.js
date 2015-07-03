@@ -184,11 +184,20 @@ $(document).ready(function(e) {
 			});
 
 
-		
+
+
+		/*	 $(".tap").on("click",function(){
+						text = $(this).text();
+						
 
 
 
+						$('.ans1').attr('checked', true);
+						
 
+				    alert( val  );
+			});          
+*/
 
 
 });// end of document
