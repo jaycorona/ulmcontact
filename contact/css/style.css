@@ -78,19 +78,49 @@ html,body{
   height: 93px;
 }
 
+.sex {
 
+	margin-left: -9px;
+}
 
 
 @media only screen and (max-width:800px) {	
 
+	body{
+
+		  font-size: 12px!important;
+	}
+
+	input[type=checkbox], input[type=radio] {
+			/* All browsers except webkit*/
+			transform: scale(1.5);
+
+			/* Webkit browsers*/
+			-webkit-transform: scale(1.5);
+			margin-bottom: 0px;
+			margin-left: 18px;
+			margin-right: 20px;
+			margin-top: 0px;
+
+    }
+
+	.sex {
+
+		margin-left: 5px;
+	}
+
+	.align{
+		display: inline-block;
+		width: 300px;
+	}
+
+	.block{
+		display: block;
+	}
+
 	#header {
 	  width: 100%;
 	}
-	/*input.ans1
-	{
-		width: 30px;
-		height: 30px;
-	}*/
 
     .paddingClass{
 
@@ -104,10 +134,10 @@ html,body{
 
 	#form {
 	  background-color: #baeafd;
-	  width: 99%;
+	  width: 94%;
 	  margin: 5% auto 0;
 	  line-height: 150%;
-	  padding: 0;
+	  padding: 3%;
 	}	
 
 	.textq10 {
@@ -117,40 +147,6 @@ html,body{
 	}
 
 }
-
-/*@media only screen and (max-width:500px) {	
-
-	div#nol_header div.nol_inner p.nol_logo {
-	  margin-left: auto;
-	  margin-right: auto;
-	  width: 28%;
- 	  float: none !important;
-	}
-
-	div#nol_header div.nol_inner p.nol_logo img {
-	  margin: 10px 24px 0 23px !important;
-	}		
-
-
-	div#nol_header div#nol_headerGroup{
-	  margin-left: auto;
-	  margin-right: auto;
-	  
- 	  float: none !important;
-
-	}
-
-
-	div#nol_header *, div#nol_footer * {
-	  margin: 0;
-	  padding: 0;
-	  font-size: 12px;
-	  line-height: 1;
-	}
-
-
-}*/
-
 
 
 

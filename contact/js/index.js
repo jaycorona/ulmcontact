@@ -20,17 +20,18 @@ var Form =(function(){
 $(document).ready(function(e) {
     Form.init();
 
-if(jQuery.browser.mobile)
+/*if(jQuery.browser.mobile)
 {
 	$('#header, #contact-header, #form').css({'width':'100%', 'padding': '0'});
 	$('#form').css({'width':'90%', 'padding': '4%'});
-	/*$(' input[type=checkbox]').css('transform','scale(1.5)','-webkit-transform','scale(1.5)');*/
+	$('body').css({'font-size':'10px'});
+	$('input[type=checkbox], input[type=radio]').css({'transform': 'scale(1.5)', '-webkit-transform':'scale(1.5)', 'margin-bottom':'16px', 'margin-top':'6px', 'margin-left': '18px', 'margin-right':'20px', 'width':'14px', 'height':'15px'});
    console.log('You are using a mobile device!');
 }
 else
 {
    console.log('You are not using a mobile device!');
-}
+}*/
 
 		$('#privacy').click(function(e){
 			e.preventDefault();
