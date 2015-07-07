@@ -31,7 +31,7 @@
 
 <script type="text/javascript" src="https://www.nhk.or.jp/common/sp/nol_SmartPhone.js" charset="utf-8"></script>
 <script type="text/javascript" src="https://www.nhk.or.jp/common/jquery/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.browser.mobile.js"></script> 
+
 <script>
 	//if(location.protocol=="http:")location.href="https://"+location.hostname+location.pathname;
 </script>
@@ -60,7 +60,7 @@
 		「<a href="http://www.nhk.or.jp/toppage/rules/" target="_blank">ＮＨＫインターネットサービス利用規約</a>」をご覧ください。<br>
         ※ご記入いただいたアンケートは「生命大躍進」の番組・アプリ・展覧会以外の目的に使用したり、外部に出すことはありません。</div>
 		
-		<form method="post" id="formsubmit" action="https://cgi2.nhk.or.jp/seimei/contact/thanks.html">
+		<form method="post" id="formsubmit">
         	<input type="hidden" name="setup" value="/seimei/contact/contact">
 			<input type="hidden" name="moji" value="問">
             <input type="hidden" name="__subject__" value="MAIL TITLE">
@@ -91,7 +91,7 @@
 			<p>Q3.	「コダモン」アプリを知ったきっかけは何ですか？</p>
 				<label><input type="radio" name="q3"  value="1" />1<span class="q17">．</span>NHKの番組 <br></label>
 				<label><input type="radio" name="q3"  value="2" />2<span class="q17">．</span>NHKのホームページ <br></label>
-				<label><input type="radio" name="q3"  value="App 3 Play" />3<span class="q17">．</span>App StoreやGoogle Play <br></label>
+				<label><input type="radio" name="q3"  value="3" />3<span class="q17">．</span>App StoreやGoogle Play <br></label>
 				<label><input type="radio" name="q3"  value="4" />4<span class="q17">．</span>NHKのTwitter、Facebook、LINEなど <br></label>
 				<label><input type="radio" name="q3"  value="5" />5<span class="q17">．</span>.LINEの「フリーコイン」ビデオ <br></label>
 				<label><input type="radio" name="q3"  value="6" />6<span class="q17">．</span>2～5以外のホームページやインターネットサービス <br></label>
@@ -148,12 +148,12 @@
 
 			<section class="q9">
 			<p>Q9.	「コダモン」アプリの「ずかん」を見るときに、次のようなことは感じますか。いくつでもお選びください。</p>
-				<label><input class="cbox9" type="checkbox" name="q9"  value="1"/>1<span class="q17">．</span>新しい生物を出現させると達成感がある <br><label>
-				<label><input class="cbox9" type="checkbox" name="q9"  value="2" />2<span class="q17">．</span>何とかして「ずかん」を完成させたいと思う<br><label>
-				<label><input class="cbox9" type="checkbox" name="q9"  value="3" />3<span class="q17">．</span>生物の進化の様子を図で理解できる<br><label>
-				<label><input class="cbox9" type="checkbox" name="q9"  value="4" />4<span class="q17">．</span>生物の進化についての考え方を知ることができる<br><label>
-				<label><input class="checkdisableb99" type="checkbox" name="q9"  value="5" />5<span class="q17">．</span>どれもあてはまらない<br><label>
-				<label><input class="checkdisableb9" type="checkbox" name="q9" value="6">6<span class="q17">．</span>「ずかん」は見ていない・知らない<label>	
+				<label><input class="cbox9" type="checkbox" name="q9"  value="1"/>1<span class="q17">．</span>新しい生物を出現させると達成感がある <br></label>
+				<label><input class="cbox9" type="checkbox" name="q9"  value="2" />2<span class="q17">．</span>何とかして「ずかん」を完成させたいと思う<br></label>
+				<label><input class="cbox9" type="checkbox" name="q9"  value="3" />3<span class="q17">．</span>生物の進化の様子を図で理解できる<br></label>
+				<label><input class="cbox9" type="checkbox" name="q9"  value="4" />4<span class="q17">．</span>生物の進化についての考え方を知ることができる<br></label>
+				<label><input class="checkdisableb99" type="checkbox" name="q9"  value="5" />5<span class="q17">．</span>どれもあてはまらない<br></label>
+				<label><input class="checkdisableb9" type="checkbox" name="q9" value="6">6<span class="q17">．</span>「ずかん」は見ていない・知らない</label>	
 			</section>	
 
 
@@ -171,7 +171,7 @@
 			</section>	
 
 			<section class="q12">
-			<p>Q12.	コダモン」アプリの「プッシュ通知」がきっかけとなって、次のようなことをしたことはありますか。いくつでもお選びください。</p></label>
+			<p>Q12.	コダモン」アプリの「プッシュ通知」がきっかけとなって、次のようなことをしたことはありますか。いくつでもお選びください。</p>
 				<label><input class="cbox12" type="checkbox" name="q12"  value="1"/>1<span class="q17">．</span>アプリを起動させて、ゲームで遊んだ<br></label>
 				<label><input class="cbox12" type="checkbox" name="q12"  value="2"/>2<span class="q17">．</span>関連の番組を放送していることを知った<br></label>
 				<label><input class="cbox12" type="checkbox" name="q12"  value="3"/>3<span class="q17">．</span>関連の展覧会があることを知った<br></label>
@@ -190,7 +190,7 @@
 			<p>Q14.	「NHKスペシャル 生命大躍進（せいめいだいやくしん）」や「ピカイア」の放送中や放送前後には、「コダモン」アプリ内で番組の内容に関するクイズに挑戦できます。あなたは、こうしたクイズに挑戦したことはありますか？</p>
 				<label><input type="radio" name="q14"  value="1"/>1<span class="q17">．</span>クイズに挑戦したことがある<br></label>
 				<label><input type="radio" name="q14"  value="2" />2<span class="q17">．</span>クイズがあることは知っていたが、挑戦はしていない<br></label>
-				<label><input type="radio" name="q14"  value="3" />3<span class="q17">．</span>クイズがあることを知らなかった<br><l/abel>
+				<label><input type="radio" name="q14"  value="3" />3<span class="q17">．</span>クイズがあることを知らなかった<br></label>
 				<label><input type="radio" name="q14"  value="4" />4<span class="q17">．</span>.番組を見ていない</label>
 			</section>	
 
@@ -205,7 +205,7 @@
 			</section>	
 
 			<section class="q16">
-			<p>Q16.	今月（7/7）から、東京の国立科学博物館で、特別展「生命大躍進（せいめいだいやくしん）が開かれます。あなたはこのこと知っていましたか。</p></label>
+			<p>Q16.	今月（7/7）から、東京の国立科学博物館で、特別展「生命大躍進（せいめいだいやくしん）が開かれます。あなたはこのこと知っていましたか。</p>
 				<label><input type="radio" name="q16"  value="1"/>1<span class="q17">．</span>展覧会が開かれることを知っていて、ぜひ行ってみたい／すでに行った<br></label>
 				<label><input type="radio" name="q16"  value="2" />2<span class="q17">．</span>展覧会が開かれることは知っていたが、行ってみようとは思わない<br></label>
 				<label><input type="radio" name="q16"  value="3" />3<span class="q17">．</span>展覧会が開かれることを知らなかったが、ぜひ行ってみたい<br></label>
@@ -329,7 +329,7 @@
 </p>
 
 			
-			<input id="submit-btn" name="submit" value="送信" type="submit" class="submit-btn" disabled>
+			<input id="submit-btn" name="submit" value="送信" type="button" class="submit-btn" disabled>
 			<input name="reset" value="リセット" type="reset">
 		
 		</form>
@@ -347,3 +347,77 @@
 
 </body>
 </html>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var days = 10;
+		var message = '初回のご回答から'+days+' 日以内は再び送信することはできません。';
+
+		//$.removeCookie('space_cookie');
+		$('#submit-btn').click(function(e){
+			e.preventDefault();
+			var data = new Array();
+			
+			$('section').each(function(){
+				var classname = $(this).attr('class');
+				var value = new Array();
+				if( $(this).find('input[type="radio"]').length > 0 ){
+					value.push($(this).find('input[type="radio"]:checked:first').val());
+				}
+				else if( $(this).find('input[type="checkbox"]').length > 0 ){
+					value.push( $(this).find('input[type="checkbox"]:checked').val() );
+				}
+				else if( $(this).find('textarea').length > 0 )
+					value.push( $(this).find('textarea').val() );
+				else if( $(this).find('select').length > 0 )
+					value.push( $(this).find('select option:selected').val() );
+				
+				data.push(  { 	
+								'class' : classname,
+								'value' : value
+							} );
+			});
+			
+
+			console.log( data );
+			//set_cookie( 'space_cookie', JSON.stringify( data ), days, '/' );
+			$.cookie('space_cookie', JSON.stringify( data ), {expires : days, path: '/'});
+
+			setTimeout(function(){  $(location).attr('href',"https://cgi2.nhk.or.jp/seimei/contact/thanks.html"); }, 1000);
+				
+		});
+		
+		if( $.cookie('space_cookie') ){
+			var sections = JSON.parse( $.cookie('space_cookie') );
+			console.log(sections);
+			for( var i=0; i<sections.length; i++ ){
+				var element = $('.'+sections[i].class);
+				if( element.find('input[type="radio"]').length > 0 ){
+					$(this).find('input[value="'+sections[i].value[0]+'"]').attr('checked', 'checked');
+				}
+				else if( element.find('input[type="checkbox"]').length > 0 ){
+					element.find('input[type="checkbox"]').each(function(){
+						/*if( $.inArray( $(this).val(), sections[i].value) )
+							$(this).attr('checked', 'checked'); */
+						for( var j=0; j<sections[i].value.length; j++ )
+							if( $(this).val() == sections[i].value[j] )
+								$(this).attr('checked', 'checked');
+					});
+					
+						
+				}
+				else if( element.find('textarea').length > 0 )
+					element.find('textarea').val( sections[i].value[0] );
+				else if( $(this).find('select').length > 0 )
+					element.find('select option[value="'+sections[i].value[0]+'"]').attr('selected', 'selected');
+			}
+			$('input, textarea, select').attr('disabled','disabled')
+			alert(message);
+
+
+		}
+		/*else
+			alert('no cookie');*/
+		
+	});
+
+</script>
